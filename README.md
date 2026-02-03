@@ -4,92 +4,130 @@ Automação em Python para monitoramento de clientes com saldo negativo a partir
 
 English (short): Python automation for monitoring negative balances using Excel data, generating visual alerts per advisor and delivering notifications via WhatsApp Web.
 
-Principais recursos
+---
 
-- Processamento de bases em Excel para identificação de clientes com saldo negativo
-- Consolidação e agrupamento das informações por assessor
-- Geração automática de imagens-resumo para comunicação visual
-- Envio automatizado de alertas via WhatsApp Web utilizando Selenium
-- Apoio à atuação preventiva e ao acompanhamento operacional
+## Principais recursos
 
-Contexto
+* Processamento de bases em Excel para identificação de clientes com saldo negativo
+* Consolidação e agrupamento das informações por assessor
+* Geração automática de imagens-resumo para comunicação visual
+* Envio automatizado de alertas via WhatsApp Web utilizando Selenium
+* Apoio à atuação preventiva e ao acompanhamento operacional
+
+---
+
+## Contexto
 
 Em rotinas de backoffice e operações, o acompanhamento de clientes com saldo negativo exige:
 
-- monitoramento frequente de bases atualizadas
-- comunicação rápida com os responsáveis
-- clareza visual para priorização de ações
-- redução de controles manuais repetitivos
+* monitoramento frequente de bases atualizadas
+* comunicação rápida com os responsáveis
+* clareza visual para priorização de ações
+* redução de controles manuais repetitivos
 
-Este projeto automatiza esse fluxo operacional, reduzindo esforço manual, melhorando a visibilidade das situações críticas e apoiando a tomada de ação em tempo hábil.
+A execução manual desse processo é suscetível a falhas, atrasos e inconsistências operacionais.
 
-Aviso importante (uso autorizado)
+Este projeto automatiza esse fluxo de forma estruturada, reduzindo esforço manual, melhorando a visibilidade das situações críticas e apoiando a tomada de ação em tempo hábil.
+
+---
+
+## Aviso importante (uso autorizado)
 
 Este repositório é apresentado como exemplo técnico/portfólio.
 
-- Utilize apenas ambientes e contas autorizadas
-- Não utilize dados reais ou informações sensíveis
-- Respeite políticas internas, LGPD e regras de uso do WhatsApp Web
-- Este projeto não deve ser utilizado em produção sem as devidas autorizações
+* Utilize apenas ambientes e contas autorizadas
+* Não utilize dados reais ou informações sensíveis
+* Respeite políticas internas, LGPD e regras de uso do WhatsApp Web
+* Este projeto não deve ser utilizado em produção sem as devidas autorizações
 
-Estrutura do projeto
+---
 
+## Estrutura do projeto
+
+A estrutura do projeto foi mantida simples, refletindo a complexidade real da automação:
+
+```
 .
 ├─ main.py
 ├─ requirements.txt
 ├─ LICENSE
 └─ README.md
+```
 
-Requisitos
+---
 
-- Python 3.10+
-- Ambiente Windows
-- Navegador Google Chrome
-- Conta ativa no WhatsApp Web
+## Requisitos
+
+* Python 3.10+
+* Ambiente Windows
+* Navegador Google Chrome
+* Conta ativa no WhatsApp Web
 
 Este projeto utiliza automação via Selenium, sendo dependente de navegador e sessão ativa.
 
-Instalação
+---
 
+## Instalação
+
+Crie um ambiente virtual e instale as dependências:
+
+```bash
 python -m venv .venv
 
 # Windows
 .venv\Scripts\activate
 
 pip install -r requirements.txt
+```
 
-Configuração
+---
+
+## Configuração
 
 As bases de dados em Excel utilizadas para leitura de saldos devem permanecer fora do versionamento.
 
-Caminhos de arquivos e parâmetros operacionais podem ser ajustados diretamente no código ou adaptados para arquivos de configuração locais, conforme a necessidade do ambiente.
+* Arquivos reais de entrada não devem ser incluídos no Git
+* Caminhos e parâmetros operacionais podem ser ajustados diretamente no código
+* Caso necessário, o projeto pode ser adaptado para uso de arquivos de configuração locais
 
-Execução
+---
 
+## Execução
+
+Execute o script principal:
+
+```bash
 python main.py
+```
 
-O processo:
+O processo executa as seguintes etapas:
 
-- lê a base em Excel
-- identifica clientes com saldo negativo
-- consolida informações por assessor
-- gera imagens-resumo
-- envia alertas via WhatsApp Web
+* leitura da base em Excel
+* identificação de clientes com saldo negativo
+* consolidação das informações por assessor
+* geração de imagens-resumo
+* envio automatizado de alertas via WhatsApp Web
 
-Saídas geradas
+---
 
-- Imagens-resumo por assessor
-- Alertas enviados via WhatsApp Web
-- Apoio visual para acompanhamento operacional
+## Saídas geradas
 
-Sanitização de dados
+* Imagens-resumo por assessor
+* Alertas enviados via WhatsApp Web
+* Apoio visual para acompanhamento operacional
+
+---
+
+## Sanitização de dados
 
 Este repositório não contém dados reais.
 
-- Bases Excel reais devem permanecer fora do Git
-- Imagens geradas não devem ser versionadas
-- Identificadores sensíveis são tratados apenas em tempo de execução
+* Bases Excel reais devem permanecer fora do Git
+* Imagens geradas são tratadas apenas em tempo de execução
+* Identificadores sensíveis não são persistidos
 
-Licença
+---
+
+## Licença
 
 MIT
