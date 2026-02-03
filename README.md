@@ -97,7 +97,7 @@ As bases de dados em Excel utilizadas para leitura de saldos devem permanecer fo
 Execute o script principal:
 
 ```bash
-python main.py
+python main.py --saldos "caminho/para/saldos.xlsx" --contatos "caminho/para/contatos.xlsx"
 ```
 
 O processo executa as seguintes etapas:
