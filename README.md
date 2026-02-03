@@ -1,120 +1,95 @@
-# Alerta de Saldo Negativo via WhatsApp (Selenium + Pandas)
+WhatsApp Negative Balance Alert Automation
 
-Automação em Python que **gera uma imagem por assessor** com a lista de clientes em **saldo negativo** (a partir de uma planilha) e **envia via WhatsApp Web** usando Selenium.
+Automação em Python para monitoramento de clientes com saldo negativo a partir de bases em Excel, com geração de alertas visuais por assessor e envio automatizado via WhatsApp Web, apoiando rotinas de backoffice e acompanhamento operacional.
 
-> Projeto profissional **sanitizado**: sem dados reais, sem telefones reais, sem nomes internos e sem base de clientes.
+English (short): Python automation for monitoring negative balances using Excel data, generating visual alerts per advisor and delivering notifications via WhatsApp Web.
 
----
+Principais recursos
 
-## Contexto
+- Processamento de bases em Excel para identificação de clientes com saldo negativo
+- Consolidação e agrupamento das informações por assessor
+- Geração automática de imagens-resumo para comunicação visual
+- Envio automatizado de alertas via WhatsApp Web utilizando Selenium
+- Apoio à atuação preventiva e ao acompanhamento operacional
 
-Em rotinas operacionais, clientes com saldo negativo podem sofrer encargos/multas. Para acelerar a regularização, era necessário avisar diariamente os assessores com a lista de clientes que precisavam de atenção.
+Contexto
 
-Este script automatiza esse fluxo:
+Em rotinas de backoffice e operações, o acompanhamento de clientes com saldo negativo exige:
 
-* lê base de saldos
-* separa por assessor
-* gera uma imagem (tabela)
-* envia mensagem + imagem no WhatsApp Web
+- monitoramento frequente de bases atualizadas
+- comunicação rápida com os responsáveis
+- clareza visual para priorização de ações
+- redução de controles manuais repetitivos
 
----
+Este projeto automatiza esse fluxo operacional, reduzindo esforço manual, melhorando a visibilidade das situações críticas e apoiando a tomada de ação em tempo hábil.
 
-## O que o projeto faz
+Aviso importante (uso autorizado)
 
-1. Lê um Excel de **saldos** (com coluna `Assessor`)
-2. Lê um Excel de **contatos** (`codigo`, `numero`)
-3. Agrupa por assessor
-4. Gera uma imagem PNG com a tabela de cada assessor
-5. Abre o WhatsApp Web e envia:
+Este repositório é apresentado como exemplo técnico/portfólio.
 
-   * mensagem padrão
-   * anexo com a imagem do assessor
+- Utilize apenas ambientes e contas autorizadas
+- Não utilize dados reais ou informações sensíveis
+- Respeite políticas internas, LGPD e regras de uso do WhatsApp Web
+- Este projeto não deve ser utilizado em produção sem as devidas autorizações
 
----
+Estrutura do projeto
 
-## Tecnologias
+.
+├─ main.py
+├─ requirements.txt
+├─ LICENSE
+└─ README.md
 
-* Python
-* Pandas
-* Matplotlib (geração de imagem/tabela)
-* Selenium + WebDriver Manager (WhatsApp Web)
+Requisitos
 
----
+- Python 3.10+
+- Ambiente Windows
+- Navegador Google Chrome
+- Conta ativa no WhatsApp Web
 
-## Instalação
+Este projeto utiliza automação via Selenium, sendo dependente de navegador e sessão ativa.
 
-```bash
+Instalação
+
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
 pip install -r requirements.txt
-```
 
----
+Configuração
 
-## Como usar
+As bases de dados em Excel utilizadas para leitura de saldos devem permanecer fora do versionamento.
 
-### 1) Prepare os arquivos
+Caminhos de arquivos e parâmetros operacionais podem ser ajustados diretamente no código ou adaptados para arquivos de configuração locais, conforme a necessidade do ambiente.
 
-Você precisa de dois Excel:
+Execução
 
-**Base de saldos (`--saldos`)**
+python main.py
 
-* obrigatória a coluna: `Assessor`
-* pode ter colunas monetárias como: `D0`, `D+1`, `Total` (opcional)
+O processo:
 
-**Base de contatos (`--contatos`)**
+- lê a base em Excel
+- identifica clientes com saldo negativo
+- consolida informações por assessor
+- gera imagens-resumo
+- envia alertas via WhatsApp Web
 
-* colunas obrigatórias:
+Saídas geradas
 
-  * `codigo` (código do assessor)
-  * `numero` (telefone no formato internacional, ex.: `5511999999999`)
+- Imagens-resumo por assessor
+- Alertas enviados via WhatsApp Web
+- Apoio visual para acompanhamento operacional
 
-> Importante: não suba seus arquivos reais no GitHub. Use exemplos fake se quiser manter modelos.
+Sanitização de dados
 
----
+Este repositório não contém dados reais.
 
-### 2) Rodar em modo de teste (recomendado)
+- Bases Excel reais devem permanecer fora do Git
+- Imagens geradas não devem ser versionadas
+- Identificadores sensíveis são tratados apenas em tempo de execução
 
-Gera imagens e imprime o que faria, mas não envia:
+Licença
 
-```bash
-python main.py --saldos data/saldos_exemplo.xlsx --contatos data/contatos_exemplo.xlsx --dry-run
-```
-
----
-
-### 3) Rodar enviando de verdade
-
-```bash
-python main.py --saldos data/saldos.xlsx --contatos data/contatos.xlsx
-```
-
-Na primeira vez, o Chrome vai abrir e você precisa **logar no WhatsApp Web** (QR Code). Depois disso, ele segue o envio automático.
-
----
-
-## Observações importantes (WhatsApp Web)
-
-* O WhatsApp Web muda o HTML com frequência. Se algum seletor quebrar, ajuste a função `attach_image()` e/ou os seletores de espera.
-* Automação via WhatsApp Web pode estar sujeita a regras/limitações do próprio WhatsApp. Use com responsabilidade.
-
----
-
-## Parâmetros úteis
-
-* `--out-dir` pasta onde as imagens serão geradas (default: `output`)
-* `--sleep-between` pausa entre envios (default: 3s)
-* `--dry-run` não envia nada (apenas gera e simula)
-* `--headless` roda sem interface (não recomendado para WhatsApp, mas disponível)
-
----
-
-## Limitações
-
-* Depende do WhatsApp Web estar acessível e estável
-* Seletores podem mudar (exigindo manutenção)
-* Não é “API oficial”; é automação de navegador
-
----
-
-## Licença
-
-MIT.
+MIT
