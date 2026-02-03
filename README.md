@@ -1,8 +1,8 @@
-WhatsApp Negative Balance Alert Automation
+# WhatsApp Negative Balance Alert Automation
 
 Automação em Python para monitoramento de clientes com saldo negativo a partir de bases em Excel, com geração de alertas visuais por assessor e envio automatizado via WhatsApp Web, apoiando rotinas de backoffice e acompanhamento operacional.
 
-English (short): Python automation for monitoring negative balances using Excel data, generating visual alerts per advisor and delivering notifications via WhatsApp Web.
+> English (short): Python automation for negative balance monitoring using Excel data, generating per-advisor visual alerts and automated delivery via WhatsApp Web.
 
 ---
 
